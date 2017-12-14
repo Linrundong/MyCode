@@ -19,13 +19,19 @@ public class Response {
 	
 
 
-	public void response(String str) throws IOException {
+	public void response(String str,String code) throws IOException {
 		
 		String context = str;
+		String dic;
 		
 		StringBuilder strb = new StringBuilder();
 		//1)
-		strb.append("HTTP/1.1 200 OK").append("\r\n");
+		if(code.equals("200"))
+			dic = "OK";
+		else {
+			dic = "Not Found";
+		}
+		strb.append("HTTP/1.1 ").append(code).append(" ").append(dic).append("\r\n");
 		//2)
 		strb.append("Server:dong Server/0.01").append("\r\n");
 		strb.append("Date:").append(new Date()).append("\r\n");
@@ -40,7 +46,7 @@ public class Response {
 		bw.write(strb.toString());
 		bw.flush();
 		bw.close();
-		//System.out.println("响应完毕");
+		System.out.println(strb);
 	}
 }
 

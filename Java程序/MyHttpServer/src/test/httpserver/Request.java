@@ -19,7 +19,7 @@ public class Request {
 	 //请求方式
     private String method;
     //请求资源
-    private String url;
+    public String url;
     //请求参数
     //private Map<String,List<String>> parameterMapValues;
 	
@@ -47,6 +47,7 @@ public class Request {
 		
 		if(method.equalsIgnoreCase("get")) {
 			this.url = firstLine.substring(firstLine.indexOf("/"),firstLine.indexOf("?"));
+			
 			parameterString = firstLine.substring
 					(firstLine.indexOf("?")+1,firstLine.indexOf("HTTP/")).trim();
 		}
@@ -102,6 +103,7 @@ public class Request {
 	}
 
 	public String getUrl() {
-		return url;
+		//System.out.println(this.url);
+		return this.url;
 	}
 }
