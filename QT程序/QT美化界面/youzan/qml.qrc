@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>YouZanApi.qml</file>
+        <file>YouzanItem.qml</file>
+        <file>YouZanView.qml</file>
+        <file>DDAbstractView.qml</file>
+        <file>DDCloseButton.qml</file>
+        <file>DDuiShadowBg.qml</file>
+        <file>YouZanAnimation.qml</file>
+        <file>YZCalView.qml</file>
+        <file>youzan.js</file>
+        <file>YouZanWindow.qml</file>
+        <file>YouzanSlider.qml</file>
+        <file>YouzanTextTime.qml</file>
+        <file>YouzanBottomGroup.qml</file>
+        <file>YouZanMain.qml</file>
+    </qresource>
+</RCC>

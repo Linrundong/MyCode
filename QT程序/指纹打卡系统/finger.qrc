@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/Image">
+        <file alias="Background">Resource/Image/Finger.jpg</file>
+        <file alias="Tip">Resource/Image/Tip.jpg</file>
+        <file alias="Error">Resource/Image/error.jpg</file>
+        <file alias="Ok">Resource/Image/ok.jpg</file>
+    </qresource>
+</RCC>
