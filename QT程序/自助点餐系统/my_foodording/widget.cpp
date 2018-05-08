@@ -1,18 +1,5 @@
 #include "widget.h"
 #include "ui_widget.h"
-#include <QPalette>
-#include <QLayout>
-#include <QDebug>
-#include <QListWidget>
-#include <QListWidgetItem>
-#include <QVector>
-#include <QList>
-#include<QStandardItem>
-#include <QMessageBox>
-#include <sys/stat.h>
-#include <QTextCodec>
-#include<iostream>
-#include <QMessageBox>
 
 /*
 #include <QtNetwork>
@@ -63,9 +50,8 @@ Widget::Widget(QWidget *parent) :
 
     ui->chose_menu->setViewMode(QListView::ListMode);
 
-    //网络连接
-    client = new QTcpSocket(this);
-    client->connectToHost(QHostAddress("192.168.1.166"), 6665);
+    //wifi网络连接
+    wifi_serial = new serial();
 }
 
 Widget::~Widget()
@@ -271,7 +257,7 @@ void Widget::slotforover()
             tmp += " * ";
             tmp += QString::number(*it2);
             it2++;
-            tmp += "  \n";
+            tmp += "  \r\n";
         }
         else
         {
@@ -284,11 +270,20 @@ void Widget::slotforover()
     //QByteArray ba = tmp.toLatin1();
     std::string tmp2 = tmp.toStdString();
     const char * str = tmp2.c_str();
-    qDebug()<<str<<endl;
 
     //发送数据
-    client->write(str);
-    //client->write(ba);
+    //client->write(str);
+    char str_buf[512] = {0};
+    char str_len[10] = {0};
+
+    sprintf(str_len,"%d",strlen(str));
+    strcpy(str_buf, "AT+CIPSEND=");
+    strcat(str_buf, str_len);
+    wifi_serial->Serial_io(wifi_serial->serial_fd, str_buf);
+
+    memset(str_buf, 0, 512);
+    strcpy(str_buf, str);
+    wifi_serial->uart_send(wifi_serial->serial_fd, str_buf,strlen(str_buf)+1);
 
     //初始化
     this->ui->chose_menu->clear();

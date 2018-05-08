@@ -1,13 +1,27 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
-#include <QWidget>
 #include "dishitem.h"
-#include <QString>
-#include<QListView>
-#include<QVector>
 #include "check.h"
+#include "serial.h"
+
+#include <QWidget>
+#include <QString>
+#include <QListView>
+#include <QVector>
 #include <QtNetwork>
+#include <QPalette>
+#include <QLayout>
+#include <QDebug>
+#include <QListWidget>
+#include <QListWidgetItem>
+#include <QList>
+#include <QStandardItem>
+#include <QMessageBox>
+#include <sys/stat.h>
+#include <QTextCodec>
+#include <iostream>
+#include <QMessageBox>
 
 namespace Ui {
 class Widget;
@@ -20,7 +34,8 @@ class Widget : public QWidget
 public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
-    QTcpSocket *client;
+
+    serial * wifi_serial;
     void showdishitem();
     int m_i=1;
 

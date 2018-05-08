@@ -15,8 +15,6 @@ startwidget::startwidget(QWidget *parent) :
     QPixmap pixmap(":/new/prefix1/start.jpg");
     palette.setBrush(this->backgroundRole(), QBrush(pixmap));
     this->setPalette(palette);
-
-
 }
 
 startwidget::~startwidget()

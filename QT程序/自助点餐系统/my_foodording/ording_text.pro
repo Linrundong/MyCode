@@ -29,13 +29,15 @@ SOURCES += \
         widget.cpp \
     dishitem.cpp \
     check.cpp \
-    startwidget.cpp
+    startwidget.cpp \
+    serial.cpp
 
 HEADERS += \
         widget.h \
     dishitem.h \
     check.h \
-    startwidget.h
+    startwidget.h \
+    serial.h
 
 FORMS += \
         widget.ui \
